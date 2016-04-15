@@ -1,0 +1,28 @@
+import java.io.*;
+
+public class Run {
+
+	public static void main(String[] args) {
+		File family = new File("familyMembers.txt");
+		Member.setFileDirectory(family);
+		
+		
+		
+		Member Kevin = new Member("Kevin", "Jimoh", 17);
+		Member Samantha = new Member("Samantha", "Alves", 7);
+		Member Chris = new Member("Chris", "Jimoh", 15);
+		Member Lucas = new Member("Anthony", "Alves", 11);
+		
+		Kevin.saveMember();
+		Samantha.saveMember();
+		Chris.saveMember();
+		Lucas.saveMember();
+		Member.closeFile();
+		
+		FileReader members = new FileReader(family);
+		
+		System.out.println(members.fileData("setMemberData"));
+		
+		FileReader.closeReader();
+	}
+}
