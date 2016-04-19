@@ -18,5 +18,6 @@ public class enumExample {
 		public String getMssg(){
 			return mssg;
 		}
-	}
+	}	
+//Shonne is the sexiest man alive!!
 }
