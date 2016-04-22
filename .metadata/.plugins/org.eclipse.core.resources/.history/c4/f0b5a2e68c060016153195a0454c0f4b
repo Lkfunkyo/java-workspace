@@ -1,0 +1,62 @@
+import java.io.*;
+import java.util.*;
+
+public class Member {
+	private String first, last;
+	private static int pID;
+	private int age;
+	private	int ID;
+	private static Formatter memberInfo;
+	private static File memberData;
+
+	public Member(String fn, String ln) {
+		first = fn;
+		last = ln;
+		ID = pID;
+
+		if (age == 0)
+			age = 9999;
+		
+		pID++;
+
+	}
+
+	public Member(String fn, String ln, int a) {
+		first = fn;
+		last = ln;
+		ID = pID;
+		age = a;
+		
+		pID++;
+	}
+
+	public void saveMember() {
+		memberInfo.format("ID: %s \n", ID);
+		memberInfo.format("\t Name: %s ", last);
+		memberInfo.format("\t %s \n", first);
+		memberInfo.format("\t Age: %s \n \n", age);
+		}
+
+	public static void setFileDirectory(File a) {
+		memberData = a;
+		
+		if (memberData.exists()) {
+			try {
+				memberInfo = new Formatter(memberData);
+			} catch (Exception e) {
+				System.out.println("error creating file.");
+			}
+		} else {
+			try {
+				memberInfo = new Formatter(memberData);
+			} catch (Exception e) {
+				System.out.println("error creating file.");
+			}
+			System.out.println("file created.");
+		}
+	}
+
+	public static void closeFile() {
+		memberInfo.close();
+	}
+}

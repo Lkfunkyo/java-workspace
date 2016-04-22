@@ -21,8 +21,10 @@ public class Run {
 		
 		FileReader members = new FileReader(family);
 		
-		System.out.println(members.fileData("setMemberData"));
+		System.out.println(members.fileData("memberFormat"));
 		
 		FileReader.closeReader();
+		
+		System.out.println("shonne is balls");
 	}
 }

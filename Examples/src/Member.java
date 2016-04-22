@@ -31,8 +31,18 @@ public class Member {
 	}
 
 	public void saveMember() {
-		memberInfo.format("ID: %s \n Name: %s, %s \n Age: %s \n\n", ID, last, first, age);
-	}
+		String id = new String(String.format("%s", ID));
+		String FIRST = new String(String.format("%s", first));
+		String LAST = new String(String.format("%s", last));
+		String AGE = new String(String.format("%s", age));
+		
+		memberInfo.format("  ID:%s", " ");
+		memberInfo.format("%s\n\t",  id);
+		memberInfo.format("Name:%s", " ");
+		memberInfo.format("%s, %s \n\t", LAST, FIRST);
+		memberInfo.format("Age:%s", " ");
+		memberInfo.format("%s \n \n", AGE);
+		}
 
 	public static void setFileDirectory(File a) {
 		memberData = a;

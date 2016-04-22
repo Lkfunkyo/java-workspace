@@ -5,7 +5,7 @@ public class FileReader {
 	private int index;
 	private File file;
 	private static Scanner s;
-	public String[] info = new String[1000000];
+	public String[] info = new String[10000000];
 	public FileFormats fileContent = new FileFormats(info);
 	private String choice;
 	
@@ -37,7 +37,7 @@ public class FileReader {
 	public String fileData(String formatChoice){
 		choice = formatChoice;
 		
-		if(choice == "setMemberData")
+		if(choice == "memberFormat")
 			fileContent.setMemberData();
 		else if(choice == "setNormal")
 			fileContent.setNormal();

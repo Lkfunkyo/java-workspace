@@ -1,6 +1,6 @@
 public class FileFormats {
 	private String[] data;
-	private String newData = "";
+	private static String newData = "";
 
 	public FileFormats(String[] d) {
 		data = d;
@@ -9,10 +9,15 @@ public class FileFormats {
 	public void setMemberData() {
 		for (int i = 0; i < data.length; i++) {
 			if (data[i] != null) {
-					
+				
+				newData += String.format("%s", i);
 				newData += data[i];
 				newData += "\n";
+				
+				
 			}
+			
+			
 		}
 	}
 
@@ -29,7 +34,9 @@ public class FileFormats {
 		}
 	}
 	
-	public String formattedString() {
+	public String formattedString() {	
+		
+		
 		return newData;
 	}
 }

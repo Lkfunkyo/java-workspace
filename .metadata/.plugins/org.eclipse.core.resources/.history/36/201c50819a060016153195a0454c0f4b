@@ -1,0 +1,69 @@
+import java.io.*;
+import java.util.*;
+
+public class Member {
+	private String first, last;
+	private static int pID;
+	private int age;
+	private	int ID;
+	private static Formatter memberInfo;
+	private static File memberData;
+
+	public Member(String fn, String ln) {
+		first = fn;
+		last = ln;
+		ID = pID;
+
+		if (age == 0)
+			age = 9999;
+		
+		pID++;
+
+	}
+
+	public Member(String fn, String ln, int a) {
+		first = fn;
+		last = ln;
+		ID = pID;
+		age = a;
+		
+		pID++;
+	}
+
+	public void saveMember() {
+		String id = new String(String.format("%s", ID));
+		String FIRST = new String(String.format("%s", first));
+		String LAST = new String(String.format("%s", last));
+		String AGE = new String(String.format("%s", age));
+		
+		memberInfo.format("  ID:%s", " ");
+		memberInfo.format("%s\n\t",  id);
+		memberInfo.format("Name:%s", " ");
+		memberInfo.format("%s %s \n\t", LAST, FIRST);
+		memberInfo.format("Age:%s", " ");
+		memberInfo.format("%s \n \n", AGE);
+		}
+
+	public static void setFileDirectory(File a) {
+		memberData = a;
+		
+		if (memberData.exists()) {
+			try {
+				memberInfo = new Formatter(memberData);
+			} catch (Exception e) {
+				System.out.println("error creating file.");
+			}
+		} else {
+			try {
+				memberInfo = new Formatter(memberData);
+			} catch (Exception e) {
+				System.out.println("error creating file.");
+			}
+			System.out.println("file created.");
+		}
+	}
+
+	public static void closeFile() {
+		memberInfo.close();
+	}
+}
